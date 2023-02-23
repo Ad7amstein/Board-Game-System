@@ -30,8 +30,10 @@ public class XO_Board extends Board{
         }
         // check for the diagonals
         for (int i = 0; i < board_size; ++i){
-            if (grid[2][2] != symbol) ldiag = false;
             if (grid[i][i] != symbol) rdiag = false;
+        }
+        if (grid[0][2] != symbol || grid[1][1] != symbol || grid[2][0] != symbol){
+            ldiag = false;
         }
         if (rdiag || ldiag) return true;
         return false;
