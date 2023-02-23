@@ -41,25 +41,11 @@ public class XO_Board extends Board{
     @Override
     // Return true if board status indicates a draw
     public boolean is_draw(){
-        // get the symbols from the board
-        char s1 = ' ', s2 = ' ';
-        for (int i = 0; i < board_size; ++i){
-            if (s1 != ' ' && s2 != ' ') break;
-            for (int j = 0; j < board_size; ++j){
-                if (s1 == ' ' && s2 != grid[i][j] && grid[i][j] != ' '){
-                    s1 = grid[i][j];
-                }
-                if (s2 == ' ' && grid[i][j] != s1 && grid[i][j] != ' '){
-                    s2 = grid[i][j];
-                }
-            }
-        }
         for (int i = 0; i < board_size; ++i){
             for (int j = 0; j < board_size; ++j){
                 if (grid[i][j] == ' ') return false;
             }
         }
-        if (!is_winner(s1) && !is_winner(s2)) return false;
         return true;
     }
 }
